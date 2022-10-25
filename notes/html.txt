@@ -1,0 +1,9 @@
+img:
+
+<img
+  srcset="esimerkkikuva-pieni.jpg 480w, esimerkkikuva-iso.jpg 800w"
+  sizes="(max-width: 600px) 480px,
+         800px"
+  src="esimerkkikuva-pieni.jpg"
+  alt="Esimerkkikuvan alt tiedot" 
+/>
