@@ -1,69 +1,166 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>#2 - JS Quiz App</title>
-    <link rel="stylesheet" href="../output.css" />
-  </head>
-  <body class="bg-neutral-100 text-zinc-800 h-screen">
-    <header class="my-10">
-      <div class="container mx-auto max-w-4xl">
-        <h1 class="font-extrabold text-center">
-          #2 - Multiple Choice Quiz App
-        </h1>
-        <p class="text-center">with JSON and JavaScript</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#2 - Quiz App</title>
+    <link rel="stylesheet" href="../output.css">
+    <script src="../navscript.js" defer></script>
+</head>
+<body class="bg-neutral-900 text-neutral-50 h-screen">
+    
+    <button id="navButton" tabindex="0" class="fixed top-10 left-10 cursor-pointer drop-shadow-sm z-10">
+      <div
+        class="select-none h-24 shadow-sm transition-all duration-200 brightness-90 hover:brightness-75 active:brightness-50 active:scale-75">
+        <img
+          src="../img/menuicon.svg"
+          alt="navigation menu button icon"
+          class="pointer-events-none aspect-square h-full" />
+        <img
+          src="../img/menuicon-close.svg"
+          alt="navigation menu button icon"
+          class="hidden pointer-events-none aspect-square h-full" />
       </div>
-    </header>
+    </button>
 
-    <nav class="fixed">
+    <nav
+      class="text-neutral-100 fixed top-0 h-screen w-full max-w-2xl hidden transition-all duration-500 origin-left -translate-x-full ease-in-out">
+      <div class="max-w-2xl relative h-full">
+        <div class="nav-bg h-full w-full absolute top-0 left-0 -z-10 drop-shadow-md"></div>
+        <div class="relative h-full">
+          <!-- nav header texts -->
+          <div class="px-5 absolute bottom-10 w-full xs:w-auto xs:bottom-4">
+            <div
+              class="grid grid-cols-1 grid-rows-2 gap-y-12 grid-flow-col place-items-center h-10 xs:grid-cols-2 xs:grid-flow-row">
+              <div class="flex items-center">
+                <img src="../img/sk_favicon.png" alt="My logo" class="w-12" />
+                <p>Saku Karttunen</p>
+              </div>
+              <div class="flex items-center">
+                <img src="../img/bookicon.png" alt="a school icon" class="w-12 p-1" />
+                <p>HAMK, INTIP21A6</p>
+              </div>
+            </div>
+          </div>
 
-        <div class="navcard max-w-xs outline outline-2 outline-violet-400 backdrop-blur-md p-5 rounded-lg relative">
-            <div class="absolute top-0 right-0 -mr-16 bg-violet-200 w-16 py-3 rounded-lg outline outline-transparent hover:bg-transparent hover:outline-violet-200 active:bg-violet-100">
-                <div class="text-4xl text-center">
-                    <div>
-                        <i class="bi bi-three-dots"></i>
-                    </div>
+          <!-- navmenu -->
+          <div
+            class="grid place-items-center h-screen sm:absolute sm:top-2/4 sm:right-0 sm:-translate-y-1/2">
+            <div
+              id="navMenu"
+              class="select-none text-center text-4xl font-bold flex flex-col gap-y-3 skew-x-3 max-w-sm">
+              <!-- Form and input handling -->
+              <a
+                href="../1_forms-and-inputs/index.html"
+                data-info="HTML5 Forms and Form input handling in JS"
+                class="group">
+                <div
+                  class="relative mb-2 transition-all duration-50 shadow-md reactive-nav hover:-rotate-6">
+                  <p href="#">
+                    For<span class="font-monospace relative top-1">m</span>s
+                    &amp; In<span
+                      class="bg-white text-black px-1 group-hover:bg-red-700 group-focus:bg-red-700"
+                      >p</span
+                    >ut Handling
+                  </p>
+                  <div
+                    class="clip-path-secondary -skew-x-12 -mt-6 h-32 translate-x-2 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
+                  <div
+                    class="clip-path-2 scale-y-125 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
                 </div>
-            </div>
-            <h2 class="font-extrabold">Navigation</h2>
-            <div class="grid grid-flow-col py-5 border-b-2 border-violet-200">
-                <img src="../imgs/avatar.jpg" class="h-24 aspect-square bg-zinc-400"></img>
-                <div class="place-self-center">
-                    <p class="text-sm">INTIP21A6</p>
-                    <h3 class="font-bold text-lg">Saku Karttunen</h3>
+              </a>
+
+              <!-- Quiz app -->
+              <a
+                href="#"
+                data-info="Multiple choice quiz app with JSON and JS"
+                class="-mt-2 group">
+                <div
+                  class="relative transition-all duration-50 shadow-md sm:translate-x-3 reactive-nav hover:rotate-6">
+                  <p href="#">Quiz App</p>
+                  <div
+                    class="clip-path-secondary -mt-3 h-16 w-[98%] absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
+                  <div
+                    class="clip-path-2 scale-y-125 translate-y-1 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
                 </div>
-            </div>
-            <div class="my-5">
-                <h3 class="opacity-70 text-sm">Assignments</h3>
-                <div class="flex flex-col">
-                    <div>
-                        <p>#1 - HTML5 Forms and Handling Form Input</p>
-                    </div>
-                    <div>
-                        <p>#2 - Multiple Choice Quiz App with JSON and JavaScript</p>
-                    </div>
-                    <div>
-                        <p>#3 - Function Calculator and Plotter</p>
-                    </div>
+              </a>
+
+              <!-- Function calculator -->
+              <a
+                href="#"
+                data-info="Function calculator made with Graph.js"
+                class="group">
+                <div
+                  class="relative transition-all duration-50 shadow-md md:-translate-x-2 reactive-nav hover:-rotate-6">
+                  <p href="#">Function Calculator</p>
+                  <!-- <div class="clip-path-secondary -mt-6 h-24 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all group-hover:scale-100"></div>
+                            <div class="clip-path-3 -mt-10 h-32 w-full absolute top-0 right-0 bg-black -z-10"></div> -->
+                  <div
+                    class="clip-path-secondary -mt-6 h-20 -skew-x-12 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
+                  <div
+                    class="clip-path-3 scale-y-150 translate-y-1 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
                 </div>
-            </div>
-            <div class="my-5">
-                <h3 class="opacity-70 text-sm">Exercises</h3>
-                <div class="flex flex-col">
-                    <div>
-                        <p><i class="bi bi-bar-chart-fill"></i> Esimerkki</p>
-                    </div>
-                    <div>
-                        <p><i class="bi bi-book-half"></i> Esimerkki</p>
-                    </div>
-                    <div>
-                        <p><i class="bi bi-box-seam-fill"></i> Esimerkki</p>
-                    </div>
+              </a>
+
+              <!-- Exercises -->
+              <a
+                href="#"
+                data-info="Extra exercises from the course"
+                class="group">
+                <div
+                  class="relative transition-all duration-50 shadow-md md:translate-x-2 reactive-nav hover:rotate-6">
+                  <p href="#">
+                    <span
+                      class="bg-white text-black px-1 group-hover:bg-red-700 group-focus:bg-red-700"
+                      >E</span
+                    >xe<span class="font-monospace relative top-1">r</span>cises
+                  </p>
+                  <!-- <div class="clip-path-secondary -mt-2 h-16 w-full absolute top-0 right-0 bg-red-700 -rotate-3 scale-0 -z-10 transition-all group-hover:scale-100"></div>
+                            <div class="clip-path-4 -mt-7 h-24 w-full absolute top-0 right-0 bg-black -z-10"></div> -->
+                  <div
+                    class="clip-path-secondary skew-x-12 -mt-2 h-16 w-full absolute top-0 right-0 bg-red-700 -rotate-3 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
+                  <div
+                    class="clip-path-4 scale-y-150 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
                 </div>
+              </a>
+
+              <!-- Github Repo -->
+              <a href="#" data-info="Github Repo for this course" class="group">
+                <div
+                  class="relative transition-all duration-50 shadow-md reactive-nav hover:-rotate-6">
+                  <p href="#">
+                    Github Repo<span
+                      class="bg-white text-black px-1 relative top-1 group-hover:bg-red-700 group-focus:bg-red-700"
+                      >s</span
+                    >itory
+                  </p>
+                  <!-- <div class="clip-path-secondary -mt-3 h-16 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all group-hover:scale-100"></div>
+                            <div class="clip-path-5 -mt-7 h-24 w-full absolute top-0 right-0 bg-black -z-10"></div> -->
+                  <div
+                    class="clip-path-secondary -mt-3 h-16 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
+                  <div
+                    class="clip-path-5 scale-y-150 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
+                </div>
+              </a>
+              <p
+                id="infoText"
+                class="select-text px-2 text-sm font-monospace font-normal w-1/2 bg-black mx-auto shadow-sm border-b-2 border-red-700 py-1">
+                Frontend Javascript 2022
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </nav>
 
-  </body>
+    <main class="mt-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-xl mx-auto text-center">
+          <h1 class="text-3xl font-bold">#2 - Quiz App with JSON and Javascript</h1>
+          <p>Saku Karttunen</p>
+        </div>
+      </div>
+    </main>
+
+</body>
 </html>

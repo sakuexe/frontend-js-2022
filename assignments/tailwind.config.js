@@ -7,7 +7,11 @@ module.exports = {
       'display': ['Lato'],
       'monospace': ['"PT Mono"']
     },
-    extend: {},
+    extend: {
+      screens: {
+        xs: '400px',
+      },
+    },
   },
   plugins: [],
 }
