@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="../output.css">
     <script src="../navscript.js" defer></script>
     <script src="mainscript.js" defer></script>
+    <script>
+      function showResults() {
+        let fullname = document.querySelector('#id-fullname').value
+        let password = document.querySelector('#id-password').value
+        let genderText
+        for (let gender of document.getElementsByName('gender')) {
+          if (gender.checked) genderText = gender.value
+        }
+        let hobbies = []
+        for(let hobby of document.getElementsByName('hobbies')) {
+          if (hobby.checked) hobbies.push(hobby.value)
+        }
+
+        let form = document.querySelector('form')
+        let country = form.country.options[form.country.selectedIndex].text
+
+        let height = document.querySelector('#id_height').value
+
+        document.querySelector('#id-result').innerText = 
+          `Welcome ${fullname} \n
+          Your passowrd is: ${password} \n
+          Your gender is: ${genderText} \n
+          Your hobbies include: ${hobbies.join(', ')} \n
+          You are from ${country} \n
+          Your height is ${height}`
+      }
+    </script>
 </head>
 <body class="bg-neutral-900 text-neutral-50 h-screen">
     
@@ -196,6 +223,65 @@
         </div>
       </div>
     </main>
+
+    <section class="my-10">
+      <div class="container mx-auto px-4 max-w-xl">
+        <!-- 
+          method="get" -hakuja varten 
+          action=""
+        -->
+        <form method="" class="flex flex-col">
+          <label for="fullname">Full name:</label>
+          <input type="text" size="40" name="" id="id-fullname" name="fullname" placeholder="Paavo Pesusieni" autofocus
+          class="bg-transparent border-b-2 border-red-700 focus-within:outline-none">
+          <br>
+          <label for="password">Password:</label>
+          <input type="password" size="20" id="id-password" name="password" placeholder="******"
+          class="bg-transparent border-b-2 border-red-700 focus-within:outline-none">
+          <br>
+          <fieldset><legend class="text-lg font-bold font-monospace">Gender</legend>
+            <input type="radio" name="gender" value="m" id="id-male"><label for="id-male">Male</label>
+            <input type="radio" name="gender" value="f" id="id-female"><label for="id-female">Female</label>
+            <input type="radio" name="gender" value="o" id="id-other"><label for="id-other">Other</label>
+          </fieldset>
+          <fieldset class="mt-4"><legend class="text-lg font-bold font-monospace">Hobbies</legend>
+            <input type="checkbox" name="hobbies" value="reading" id="id-reading">
+            <label for="id-reading">reading</label>
+            <input type="checkbox" name="hobbies" value="music" id="id-music">
+            <label for="id-music">music</label>
+            <input type="checkbox" name="hobbies" value="sports" id="id-sports">
+            <label for="id-sports">sports</label>
+            <input type="checkbox" name="hobbies" value="games" id="id-games">
+            <label for="id-games">games</label>
+          </fieldset>
+
+          <label for="country">Country:</label>
+          <select name="country" id="country" class="bg-transparent">
+            <optgroup label="Scandinavia" class="bg-neutral-800">
+              <option value="de">Denmark</option>
+              <option value="no">Denmark</option>
+              <option value="sv">Denmark</option>
+            </optgroup>
+            <optgroup label="Baltan" class="bg-neutral-800">
+              <option value="es" selected>Estonia</option>
+              <option value="lv">Latvia</option>
+              <option value="lt">Lithuania</option>
+            </optgroup>
+          </select>
+
+          <label for="id-height">Height:</label>
+          <input type="range" name="height" id="id_height" placeholder="in cm" min="0" max="300" value="175"
+          oninput="id_height_output.value = this.value">
+          <input type="number" id="id_height_output" value="175" min="0" max="300" oninput="id_height.value = this.value"
+          class="bg-transparent">
+
+          <input type="button" value="Send" onclick="showResults()" 
+          class="bg-neutral-800 max-w-sm mx-auto px-4 py-2 my-3 outline outline-1 outline-transparent hover:outline-red-700">
+          <output id="id-result"></output>
+        </form>
+
+      </div>
+    </section>
 
 </body>
 </html>
