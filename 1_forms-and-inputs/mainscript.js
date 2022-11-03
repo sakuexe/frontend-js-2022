@@ -20,33 +20,58 @@ const resultElement = document.querySelector('#results')
 const darkBG = document.querySelector('#darkbg')
 
 function showResults() {
-    // get needed values and save them in variables
-    let userName = document.querySelector('#username').value
+
+
+    // alternative way of doing it
+    let values = []
+    // Username
+    values.push(
+        document.querySelector('#username').value
+    )
+    // Password
     let password = document.querySelector('#password').value
-    let passwordRepeat = document.querySelector('#password-repeat').value
-    let form = document.querySelector('form')
-    let country = form.country.options[form.country.selectedIndex]
-
-    let gender
-    for (let genderEl of document.querySelectorAll('[name="gender"]')) genderEl.checked ? gender = genderEl.value : gender
+    let passwordRepeated = document.querySelector('#password-repeat').value
+    values.push(
+        password
+    )
+    // Gender
+    values.push(
+        `${document.querySelector('[name="gender"]:checked').value}`
+    )
+    // Country
+    let country = document.querySelector('option:checked')
+    values.push(
+        `${country.value} ${country.dataset.flag}`
+    )
+    // Hobbies
     let hobbies = []
-    for (hobby of document.querySelectorAll('[name="hobbies"]')) {
-        if (hobby.checked) hobbies.push(hobby.value)
+    for (let hobby of document.querySelectorAll('[name="hobbies"]:checked')) {
+        hobbies.push(hobby.value)
     }
-    const height = document.querySelector('#height_output').value
+    values.push(hobbies.join(', '))
+    // Height
+    values.push(
+        document.querySelector('#height_slider').value + 'cm'
+    )
+    // Favourite color
+    values.push(
+        document.querySelector('#fave-color').value
+    )
+    // Profession
+    values.push(
+        document.querySelector('#profession').value
+    )
+    // Extra information
+    values.push(
+        `"${document.querySelector('#extra-info').value}"`
+    )
 
-    // assing gotten values into results element
+    // assign gotten values
     let results = document.querySelectorAll('.result')
-    
-    results[0].innerText = userName
-    results[1].innerText = password
-    results[2].innerText = gender
-    if (gender === "Male") results[2].innerText = `${gender} ♂`
-    if (gender === "Female") results[2].innerText = `${gender} ♀`
-    results[3].innerText = country.text + " " + country.dataset.flag
-    
-    results[4].innerText = hobbies.join(", ")
-    results[5].innerText = height + "cm"
+
+    for (let index = 0; index < values.length; index++) {
+        results[index].innerText = values[index]
+    }
 
     // turn results element visible
     resultElement.classList.toggle("hidden")
@@ -61,3 +86,34 @@ returnButton.addEventListener('click', _ => {
     darkBG.classList.toggle("hidden")
 
 })
+
+
+
+
+    // for (let userInput of userInputs) {
+
+    //     let legendText = userInput.querySelector('legend')
+
+    //     if (legendText && legendText.innerText) {
+    //         if (legendText.innerHTML === 'Gender') {
+    //             values.push(userInput.querySelector('[name="gender"]:checked').value)
+    //             continue
+    //         }
+
+    //         let hobbies = []
+    //         for (let hobby of userInput.querySelectorAll('[name="hobbies"]:checked')) {
+    //             hobbies.push(hobby.value)
+    //         }
+    //         values.push(hobbies.join(', '))
+    //         continue
+    //     }
+
+    //     // for getting the country
+    //     if (userInput.tagName === 'select') {
+    //         values.push(userInput.querySelector('option:checked'))
+    //         continue
+    //     }
+
+    //     values.push(userInput.value)
+    //    }
+    // console.log(values)

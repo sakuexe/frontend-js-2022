@@ -173,12 +173,12 @@
             <div class="flex border-b-2 border-red-700">
               <input type="text" size="20" name="" id="username" name="username" placeholder="Username"
               aria-label="Username input" autofocus
-              class="bg-transparent grow focus-within:outline-none">
+              class="bg-transparent grow focus-within:outline-none user-input">
             </div>
 
             <div class="flex border-b-2 border-red-700">
               <input type="password" size="20" id="password" name="password" placeholder="Password" aria-label="Password input"
-              class="bg-transparent grow focus-within:outline-none">
+              class="bg-transparent grow focus-within:outline-none user-input">
               <button type="button" class="password-toggle shrink">
                 <i class="bi bi-eye hidden"></i><i class="bi bi-eye-slash"></i>
               </button>
@@ -186,7 +186,7 @@
 
             <div class="flex border-b-2 border-red-700">
               <input type="password" size="20" id="password-repeat" name="password-repeat" placeholder="Retype Password" aria-label="Retype Password"
-              class="bg-transparent grow focus-within:outline-none">
+              class="bg-transparent grow focus-within:outline-none user-input">
               <!-- If type="button" is NOT assinged, will "submit" form automatically when pressed -->
               <!-- This happens because the button is inside of a form element-->
               <button type="button" class="password-toggle shrink">
@@ -194,7 +194,7 @@
               </button>
             </div>
 
-            <fieldset>
+            <fieldset class="user-input">
               <legend class="text-lg font-bold font-display">Gender</legend>
               <input type="radio" name="gender" value="Male" id="id-male"><label for="id-male">Male</label>
               <input type="radio" name="gender" value="Female" id="id-female"><label for="id-female">Female</label>
@@ -202,8 +202,8 @@
             </fieldset>
 
             <div class="flex flex-col">
-              <label for="country" class="">Country:</label>
-              <select name="country" id="country" class="bg-neutral-800 outline outline-1 outline-red-700 py-2">
+              <label for="country">Country:</label>
+              <select name="country" id="country" class="bg-neutral-800 outline outline-1 outline-red-700 py-2 user-input">
                 <optgroup label="Scandinavia" class="bg-neutral-800 not-italic">
                   <option value="de" data-flag="🇩🇰">Denmark</option>
                   <option value="no" data-flag="🇸🇪">Sweden</option>
@@ -225,43 +225,43 @@
           <!-- Personal info -->
           <div class="flex flex-col gap-y-4">
 
-            <fieldset>
+            <fieldset class="user-input">
               <legend class="text-lg font-bold font-display">Hobbies</legend>
-              <input type="checkbox" name="hobbies" value="reading" id="id-reading" class="sus">
-              <label for="id-reading">reading</label>
-              <input type="checkbox" name="hobbies" value="music" id="id-music" class="sus">
-              <label for="id-music">music</label>
-              <input type="checkbox" name="hobbies" value="sports" id="id-sports" class="sus">
-              <label for="id-sports">sports</label>
-              <input type="checkbox" name="hobbies" value="games" id="id-games" class="sus">
-              <label for="id-games">games</label>
+              <input type="checkbox" name="hobbies" value="Reading" id="id-reading">
+              <label for="id-reading">Reading</label>
+              <input type="checkbox" name="hobbies" value="Music" id="id-music">
+              <label for="id-music">Music</label>
+              <input type="checkbox" name="hobbies" value="Sports" id="id-sports">
+              <label for="id-sports">Sports</label>
+              <input type="checkbox" name="hobbies" value="Games" id="id-games">
+              <label for="id-games">Games</label>
             </fieldset>
 
             <div>
-              <label for="id-height" class="text-lg font-bold font-display">Height:</label>
+              <label for="height_slider" class="text-lg font-bold font-display">Height:</label>
               <div class="flex gap-x-6">
                 <input type="range" name="height" id="height_slider" placeholder="in cm" min="0" max="300" value="175"
                 oninput="height_output.value = this.value"
-                class="grow">
+                class="grow user-input">
                 <input type="number" id="height_output" value="175" min="0" max="300" oninput="height_slider.value = this.value"
                 class="bg-transparent w-1/6 shrink outline outline-1 outline-red-700 text-center">
               </div>
             </div>
 
             <div class="flex gap-x-2">
-              <input type="color" id="fave-color" name="fave-color">
+              <input type="color" id="fave-color" name="fave-color" class="user-input">
               <label for="fave-color">Favourite color</label>
             </div>
 
             <div>
               <input type="text" id="profession" name="profession" placeholder="Profession"
-              class="w-full bg-transparent border-b-2 border-red-700 focus-within:outline-none">
+              class="w-full bg-transparent border-b-2 border-red-700 focus-within:outline-none user-input">
             </div>
           </div>
 
           <div class="col-span-2 w-full">
               <textarea name="extra-info" id="extra-info" rows="5" placeholder="Anything else?"
-              class="bg-transparent border-2 border-red-700 w-full"></textarea>
+              class="bg-transparent border-2 border-red-700 w-full user-input"></textarea>
           </div>
 
           <!-- submit button -->
@@ -286,6 +286,7 @@
         <div class="grid grid-flow-row gap-2 outline outline-2 outline-offset-8 outline-red-900 sm:grid-cols-2">
           <div class="w-full bg-[#4f1515] py-4 flex flex-col justify-center relative text-center">
 
+            <div class="z-20">
             <p>Username:</p>
             <h3 class="text-xl font-extrabold drop-shadow-md result" id="result-username">Not defined</h3>
             <p>Password:</p>
@@ -294,8 +295,9 @@
             <h3 class="text-xl font-extrabold result" id="result-gender">Not defined</h3>
             <p>Country:</p>
             <h3 class="text-xl font-extrabold drop-shadow-md result" id="result-country">Not defined</h3>
+            </div>
 
-            <img src="user-icon.svg" alt="" class="h-full absolute top-0 right-0 opacity-25">
+            <img src="user-icon.svg" alt="" class="h-full absolute top-0 right-0 opacity-25 z-10 pointer-events-none select-none">
 
           </div>
 
