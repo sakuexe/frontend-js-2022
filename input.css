@@ -12,6 +12,10 @@ h3 {
   font-family: "Lato", sans-serif;
 }
 
+.button-primary {
+  @apply bg-red-700 py-2 px-4 outline outline-2 outline-transparent outline-offset-0 transition-all duration-200 hover:outline-red-700 hover:outline-offset-4 hover:drop-shadow-md hover:bg-transparent active:outline-offset-0 active:brightness-50 active:scale-90;
+}
+
 .nav-bg {
   /* clip-path: polygon(0 0, 17% 0, 100% 100%, 0% 100%); */
   background-image: url(img/personastar-bg.svg);
