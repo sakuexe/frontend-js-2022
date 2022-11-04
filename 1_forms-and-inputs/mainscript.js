@@ -14,25 +14,40 @@ passwordToggle.forEach(button => {
     })
 })
 
+// Password validation
+function passwordValidate(element) {
+    const password = document.querySelector('#password').value
+    const passwordRepeated = document.querySelector('#passwordrepeat').value
+    if (password === passwordRepeated) {
+        element.setCustomValidity('')
+        return
+    }
+    else {
+        element.setCustomValidity('Passwords must match')
+    }
+}
+
 
 // Form functionality
 const resultElement = document.querySelector('#results')
 const darkBG = document.querySelector('#darkbg')
 
-function showResults() {
+function showResults(event) {
 
+    // prevent the page from refreshing
+    event.preventDefault()
 
     // alternative way of doing it
     let values = []
-    // Username
+    // Fullname
     values.push(
-        document.querySelector('#username').value
+        document.querySelector('#fullname').value
     )
     // Password
     let password = document.querySelector('#password').value
-    let passwordRepeated = document.querySelector('#password-repeat').value
     values.push(
-        password
+        password.slice(0,1) + '*'.repeat(password.length - 4) + password.slice(-2, -1)
+        // password
     )
     // Gender
     values.push(
@@ -48,7 +63,16 @@ function showResults() {
     for (let hobby of document.querySelectorAll('[name="hobbies"]:checked')) {
         hobbies.push(hobby.value)
     }
-    values.push(hobbies.join(', '))
+    console.log(hobbies)
+    values.push(
+        // if user has chosen no hobbies, push string
+        hobbies.length == 0 ? 'No hobbies given' : hobbies.join(', ')
+    )
+    // birthdate
+    values.push(
+        document.querySelector('#birthday').value
+    )
+
     // Height
     values.push(
         document.querySelector('#height_slider').value + 'cm'
@@ -86,34 +110,3 @@ returnButton.addEventListener('click', _ => {
     darkBG.classList.toggle("hidden")
 
 })
-
-
-
-
-    // for (let userInput of userInputs) {
-
-    //     let legendText = userInput.querySelector('legend')
-
-    //     if (legendText && legendText.innerText) {
-    //         if (legendText.innerHTML === 'Gender') {
-    //             values.push(userInput.querySelector('[name="gender"]:checked').value)
-    //             continue
-    //         }
-
-    //         let hobbies = []
-    //         for (let hobby of userInput.querySelectorAll('[name="hobbies"]:checked')) {
-    //             hobbies.push(hobby.value)
-    //         }
-    //         values.push(hobbies.join(', '))
-    //         continue
-    //     }
-
-    //     // for getting the country
-    //     if (userInput.tagName === 'select') {
-    //         values.push(userInput.querySelector('option:checked'))
-    //         continue
-    //     }
-
-    //     values.push(userInput.value)
-    //    }
-    // console.log(values)

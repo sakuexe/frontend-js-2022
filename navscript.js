@@ -32,14 +32,15 @@ navButton.addEventListener('click', async() => {
 
 document.addEventListener('click', async(event) => {
 	if (event.target.closest('button') === navButton) return
-	if (event.target.closest('nav') === null) {
+	if (event.target.closest('nav') === null && !(nav.classList.contains('-translate-x-full'))) {
 		nav.classList.add('-translate-x-full')
+		navButtonImages.forEach(image => {
+			image.classList.toggle('hidden')
+		})
 		await delay(500)
 		nav.classList.add('hidden')
 	}
 })
-
-// navButton.addEventListener('keypress')
 
 // Functions for each nav element
 navLinks.forEach(link => {
