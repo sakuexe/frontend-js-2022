@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // content: ["*/*.{html, js}"],
-  content: ["./1_forms-and-inputs/*.{html, js}"],
+  content: ["*/*.{html, js}"],
+  // content: ["./1_forms-and-inputs/*.{html, js}"],
   theme: {
     fontFamily: {
       'serif': ['"PT Serif"'],
