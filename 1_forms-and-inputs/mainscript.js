@@ -108,5 +108,4 @@ returnButton.addEventListener('click', _ => {
     // turn results element invisible
     resultElement.classList.toggle("hidden")
     darkBG.classList.toggle("hidden")
-
 })
