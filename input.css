@@ -59,3 +59,8 @@ h3 {
 .exercise-button {
   @apply block my-4 px-4 py-2 rounded-xl transition-all mx-auto outline hover:bg-transparent hover:outline-2 active:brightness-50 active:scale-75;
 }
+
+.quiz-answer {
+  @apply flex flex-row gap-x-2 bg-blue-900 items-center p-2 text-lg outline outline-2 outline-neutral-400 shadow-xl transition-all 
+  hover:outline-yellow-500 hover:scale-105 hover:shadow-2xl hover:z-20 active:brightness-75 active:scale-95;
+}
