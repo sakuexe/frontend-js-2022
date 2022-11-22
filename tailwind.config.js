@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // content: ["*/*.{html, js}"],
-  // content: ["./2_quiz-app/*.{html, js}"],
-  content: ["./exercises/*.{html, js}"],
+  content: ["./2_quiz-app/*.{html, js}"],
+  // content: ["./exercises/*.{html, js}"],
   theme: {
     fontFamily: {
       serif: ['"PT Serif"'],
