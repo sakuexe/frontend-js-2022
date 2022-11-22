@@ -26,6 +26,11 @@ array.slice(1, 4)   // returns ["Suspect", 10, 11]
 
 b = array.slice(0)      // a shallow copy of array
 
+// delete items at a specific index range from a list
+let quickTest = [1,2,3,4,5,6]
+quickTest.splice(1,2)
+console.log("quicktest result: ", quickTest)
+
 array = [0, 10, 20, 10]
 array.indexOf(10) // == 1
 array.lastIndexOf(10) // == 3
@@ -46,7 +51,7 @@ numberArray.sort(compareNumbers) // this way the sorting is done numerically
 
 // shorthand version with the same result
 numberArray = [-2, 0, 100, 124, 4, 1, 4.66, 51]
-numberArray.sort((a,b) => b-a)
+console.log(numberArray.sort((a,b) => b-a))
 
 /* 
     LOOPING THROUGH ARRAYS
@@ -83,7 +88,7 @@ nameArray = ["Aino", "Wille", "Valtteri", "Ville", "Viivi", "Örkki", "Paavo", "
 nameArray.sort()
 console.log("english order:\n", nameArray.sort((a,b) => a.localeCompare(b, "en")))
 console.log("denmark order:\n", nameArray.sort((a,b) => a.localeCompare(b, "de")))
-console.log("finnish order:\n", nameArray.sort((a,b) => a.localeCompare(b, "fi")))
+console.log("finnish order:\n", nameArray.sort((a,b) => b.localeCompare(a, "fi")))
 nameArray.sort((a,b) => a.localeCompare(b, "de"))
 nameArray.sort((a,b) => a.localeCompare(b, "fi"))
 
