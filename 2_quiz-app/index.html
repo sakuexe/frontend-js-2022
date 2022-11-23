@@ -10,21 +10,70 @@
 		<script src="./quizscript.js" defer></script>
 	</head>
 	<body class="bg-neutral-900 text-neutral-50 h-screen">
+		<header class="mt-20">
+			<div class="container mx-auto px-4">
+				<div class="max-w-xl mx-auto text-center">
+					<h1 class="text-3xl font-bold">#2 - Quiz App</h1>
+					<h2 class="text-2xl font-monospace">with JSON and Javascript</h2>
+				</div>
+			</div>
+		</header>
+
+		<main class="my-20">
+			<div class="container mx-auto px-4">
+				<div class="max-w-3xl mx-auto">
+					<!-- Image for the question -->
+					<div class="question-image mb-4">
+						<div class="bg-neutral-800 w-full h-80"></div>
+					</div>
+					<!-- Question -->
+					<div
+						class="question-header text-center bg-blue-900 py-4 outline outline-2 outline-neutral-400 shadow-lg">
+						<h3 class="text-2xl font-bold">Question #1</h3>
+						<p class="text-lg" id="quiz-question">Mikä on Thaimaan pääkaupunki??</p>
+					</div>
+					<!-- Question answers -->
+					<div class="quiz-options my-3 font-semibold grid gap-3 grid-cols-2 select-none">
+						<div class="quiz-select">
+							<p class="text-yellow-500">A:</p>
+							<p class="quiz-answer">Bangok</p>
+						</div>
+						<div class="quiz-select">
+							<p class="text-yellow-500">B:</p>
+							<p class="quiz-answer">Bangpusi</p>
+						</div>
+						<div class="quiz-select">
+							<p class="text-yellow-500">C:</p>
+							<p class="quiz-answer">Bangtits</p>
+						</div>
+						<div class="quiz-select">
+							<p class="text-yellow-500">D:</p>
+							<p class="quiz-answer">Bangoose</p>
+						</div>
+					</div>
+					<div class="quiz-select select-none mx-auto sm:w-1/3">
+						<h4 class="text-xl font-semibold text-center w-full">
+							<i class="bi bi-lock-fill"></i> Lock answer
+						</h4>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Navigation beyond this point -->
 		<button
 			id="navButton"
 			tabindex="0"
-			class="fixed bottom-2 right-2 h-16 cursor-pointer drop-shadow-sm z-50 sm:bottom-auto sm:right-auto sm:top-10 sm:left-10 sm:h-20">
-			<div
-				class="select-none h-full shadow-sm transition-all duration-200 brightness-90 hover:brightness-75 active:brightness-50 active:scale-75">
-				<img
-					src="../img/menuicon.svg"
-					alt="navigation menu button icon"
-					class="pointer-events-none aspect-square h-full" />
-				<img
-					src="../img/menuicon-close.svg"
-					alt="navigation menu button icon"
-					class="hidden pointer-events-none aspect-square h-full" />
-			</div>
+			class="fixed bottom-2 right-2 h-16 cursor-pointer drop-shadow-sm z-50 shadow-sm transition-all duration-200 brightness-90 
+			hover:brightness-75 active:brightness-50 active:scale-75 sm:bottom-auto sm:right-auto sm:top-10 sm:left-10 sm:h-20">
+			<img
+				src="../img/menuicon.svg"
+				alt="navigation menu button icon"
+				class="pointer-events-none aspect-square h-full" />
+			<img
+				src="../img/menuicon-close.svg"
+				alt="navigation menu button icon"
+				class="hidden pointer-events-none aspect-square h-full" />
 		</button>
 
 		<nav
@@ -152,54 +201,5 @@
 			</div>
 		</nav>
 
-		<header class="mt-20">
-			<div class="container mx-auto px-4">
-				<div class="max-w-xl mx-auto text-center">
-					<h1 class="text-3xl font-bold">#2 - Quiz App</h1>
-					<h2 class="text-2xl font-monospace">with JSON and Javascript</h2>
-				</div>
-			</div>
-		</header>
-
-		<main class="my-20">
-			<div class="container mx-auto px-4">
-				<div class="max-w-3xl mx-auto">
-					<!-- Image for the question -->
-					<div class="question-image mb-4">
-						<div class="bg-neutral-800 w-full h-80"></div>
-					</div>
-					<!-- Question -->
-					<div
-						class="question-header text-center bg-blue-900 py-4 outline outline-2 outline-neutral-400 shadow-lg">
-						<h3 class="text-2xl font-bold">Question #1</h3>
-						<p class="text-lg" id="quiz-question">Mikä on Thaimaan pääkaupunki??</p>
-					</div>
-					<!-- Question answers -->
-					<div class="quiz-options my-3 font-semibold grid gap-3 grid-cols-2 select-none">
-						<div class="quiz-select">
-							<p class="text-yellow-500">A:</p>
-							<p class="quiz-answer">Bangok</p>
-						</div>
-						<div class="quiz-select">
-							<p class="text-yellow-500">B:</p>
-							<p class="quiz-answer">Bangpusi</p>
-						</div>
-						<div class="quiz-select">
-							<p class="text-yellow-500">C:</p>
-							<p class="quiz-answer">Bangtits</p>
-						</div>
-						<div class="quiz-select">
-							<p class="text-yellow-500">D:</p>
-							<p class="quiz-answer">Bangoose</p>
-						</div>
-					</div>
-					<div class="quiz-select select-none mx-auto sm:w-1/3">
-						<h4 class="text-xl font-semibold text-center w-full">
-							<i class="bi bi-lock-fill"></i> Lock answer
-						</h4>
-					</div>
-				</div>
-			</div>
-		</main>
 	</body>
 </html>
