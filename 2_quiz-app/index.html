@@ -6,10 +6,10 @@
 		<title>#2 - Quiz App</title>
 		<link rel="stylesheet" href="../output.css" />
 		<script src="../navscript.js" defer></script>
-		<script src="./questions.js" defer></script>
+		<script src="./utility-functions.js" defer></script>
 		<script src="./quizscript.js" defer></script>
 	</head>
-	<body class="bg-neutral-900 text-neutral-50 h-screen">
+	<body class="quiz-background text-neutral-50 h-screen">
 		<header class="mt-20">
 			<div class="container mx-auto px-4">
 				<div class="max-w-xl mx-auto text-center">
@@ -19,17 +19,18 @@
 			</div>
 		</header>
 
-		<main class="my-20">
+		<main class="mt-20">
 			<div class="container mx-auto px-4">
 				<div class="max-w-3xl mx-auto">
 					<!-- Image for the question -->
-					<div class="question-image mb-4">
-						<div class="bg-neutral-800 w-full h-80"></div>
+					<div class="relative mb-4 h-80 w-full shadow-inner brightness-90 overflow-hidden">
+						<img id="question-image" src="" alt="" 
+						class="w-full absolute top-1/2 -translate-y-1/2 transition-all hover:scale-105">
 					</div>
 					<!-- Question -->
 					<div
 						class="question-header text-center bg-blue-900 py-4 outline outline-2 outline-neutral-400 shadow-lg">
-						<h3 class="text-2xl font-bold">Question #1</h3>
+						<h3 class="text-2xl font-bold">Question #<span id="questionNumber">1</span></h3>
 						<p class="text-lg" id="quiz-question">Mikä on Thaimaan pääkaupunki??</p>
 					</div>
 					<!-- Question answers -->
@@ -59,6 +60,23 @@
 				</div>
 			</div>
 		</main>
+
+		<section id="results" class="fixed top-0 h-screen w-screen z-10 hidden">
+			<div class="text-center grid place-content-center h-screen">
+				<div class="bg-blue-900 py-10 w-screen shadow-xl outline outline-neutral-300 z-20">
+
+					<h2 class="text-4xl font-extrabold">Your Score:</h2>
+
+					<p id="userScore" class="text-yellow-400 font-bold text-3xl">Results loading...</p>
+
+					<button class="py-2 px-4 mt-4 text-yellow-400 font-semibold outline outline-yellow-400 shadow-sm transition-all
+					hover:bg-yellow-400 hover:text-neutral-900 active:shadow-none active:brightness-75 active:scale-90"
+					onclick="location.reload()">Play again?</button>
+
+				</div>
+			</div>
+			<div class="h-screen w-screen absolute top-0 opacity-50 -z-10 backdrop-brightness-50 backdrop-blur-lg"></div>
+		</section>
 
 		<!-- Navigation beyond this point -->
 		<button

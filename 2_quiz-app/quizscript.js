@@ -1,32 +1,54 @@
 const questionElement = document.querySelector('#quiz-question')
 const answers = document.querySelectorAll('.quiz-answer')
 const lockAnswer = document.querySelector('#lock-answer')
-const quizQuestions = Prompts
 let promptCounter = 0 // current question, counted in indexes
 let scoreCounter = 0
+let quizQuestions
 
-shuffleArray(quizQuestions) // shuffle the order of questions
+async function initializeGame() {
+	quizQuestions = await getJSON()
+	setUpRound()
+}
 
-// * Give elements eventlisteners
+initializeGame()
+
+// * Give answer elements eventlisteners
 for (let answer of answers) {
 	answer.parentElement.addEventListener('click', _ => {
-		answers.forEach(answer => {
-			answer.parentElement.classList.remove('chosen-answer')
-		})
+		// clears previous selection before assigning a new one
+		clearSelection()
 		answer.parentElement.classList.add('chosen-answer')
 	})
 }
 
+// * Give 'lock answer' -element an eventlistener
 lockAnswer.addEventListener('click', _ => {
-    checkAnswer()
-    console.log(scoreCounter)
+	if (!quizQuestions) return
+	if (!document.querySelector('.chosen-answer')) return
+
+	if (checkAnswer(quizQuestions[promptCounter])) scoreCounter += 1
+	promptCounter += 1
+
+	clearSelection()
+
+	if (promptCounter < quizQuestions.length) {
+		setUpRound()
+		return
+	}
+	showResult(scoreCounter, quizQuestions.length)
 })
 
-// Set up question
-function getQuestion() {
-	const currentPrompt = quizQuestions[promptCounter]
+// Sets up the round
+function setUpRound() {
 
-	console.table(quizQuestions)
+	// chooses the current prompt and adds it's order to the question header
+	const currentPrompt = quizQuestions[promptCounter]
+	document.querySelector('#questionNumber').innerText = promptCounter + 1
+
+	// assign the question's image
+	let imageElement = document.querySelector("#question-image")
+	imageElement.src = currentPrompt.imagePath
+	imageElement.alt = currentPrompt.imageAlt
 	// assign current question into the UI
 	questionElement.innerText = currentPrompt.question
 
@@ -37,30 +59,9 @@ function getQuestion() {
 
 	// Shuffle the array
 	shuffleArray(currentAnswers)
-	console.table(currentAnswers)
 
+	// set answers to the UI
 	for (let [index, answer] of currentAnswers.entries()) {
-		console.log(index, answer)
 		answers[index].innerText = answer
 	}
-}
-
-function checkAnswer() {
-	// TODO: check if chosen answer == Prompt.correct
-    // search for the element with the class .chosen-answer
-    let chosenAnswer = document.querySelector('.chosen-answer')
-    if (!chosenAnswer) return
-    chosenAnswer = chosenAnswer.querySelector('.quiz-answer').innerText
-    console.log(chosenAnswer)
-
-    // check if the answer is the same as correct answer
-    const correctAnswer = quizQuestions[promptCounter].correctAnswer
-    if (correctAnswer !== chosenAnswer) return
-    scoreCounter += 1
-}
-
-getQuestion()
-
-function shuffleArray(arr) {
-	arr.sort(() => Math.random() - 0.5)
 }

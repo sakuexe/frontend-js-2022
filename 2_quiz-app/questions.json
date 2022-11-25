@@ -1,0 +1,46 @@
+[
+  {
+    "question":"What year was the cult classic movie, Shark Tale, released?",
+    "wrongAnswers":[
+      "1987",
+      "2010",
+      "2002"
+    ],
+    "correctAnswer":"2004",
+    "imagePath":"../img/quiz-images/sharktale.webp",
+    "imageAlt":"Sharktale cover image"
+  },
+  {
+    "question":"Who was the first Formula 1 World Champion",
+    "wrongAnswers":[
+      "Niki Lauda",
+      "Mike Hawthorn",
+      "Juan Manuel Fangio"
+    ],
+    "correctAnswer":"Qiuseppe Farina",
+    "imagePath":"../img/quiz-images/quiz-f1.webp",
+    "imageAlt":"An old F1 car driving away from a new F1 car"
+  },
+  {
+    "question":"Which company was initially called 'Cadabra'?",
+    "wrongAnswers":[
+      "Samsung",
+      "Paypal",
+      "Walmart"
+    ],
+    "correctAnswer":"Amazon",
+    "imagePath":"../img/quiz-images/kadabra.webp",
+    "imageAlt":"the Pokemon kadabra"
+  },
+  {
+    "question":"What country has the highest life expectancy?",
+    "wrongAnswers":[
+      "Japan",
+      "Canada",
+      "Finland"
+    ],
+    "correctAnswer":"Hong Kong",
+    "imagePath":"../img/quiz-images/old-young.webp",
+    "imageAlt":"old lady holding a picture of a young lady"
+  }
+]

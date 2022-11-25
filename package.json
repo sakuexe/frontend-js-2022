@@ -5,7 +5,6 @@
     "scripts": {
     "build": "tailwindcss -i ./input.css -o ./output.css",
     "watch": "tailwindcss -i ./input.css -o ./output.css --watch",
-    // purges tailwindcss output file to a minimal version
     "minify": "tailwindcss -o ./output.css --minify"
   }
 }
