@@ -14,10 +14,10 @@ initializeGame()
 
 // * Give answer elements eventlisteners
 for (let answer of answers) {
-	answer.parentElement.addEventListener('click', _ => {
+	answer.parentElement.parentElement.addEventListener('click', _ => {
 		// clears previous selection before assigning a new one
 		clearSelection()
-		answer.parentElement.classList.add('chosen-answer')
+		answer.closest('.quiz-select').classList.add('chosen-answer')
 	})
 }
 

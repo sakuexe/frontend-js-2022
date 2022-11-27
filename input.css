@@ -73,14 +73,26 @@ h3 {
 }
 
 .quiz-select {
-  @apply flex flex-row gap-x-2 bg-blue-900 items-center p-2 text-lg outline outline-2 outline-neutral-400 shadow-xl transition-all 
-  hover:outline-yellow-500 hover:scale-105 hover:shadow-2xl hover:z-20 active:brightness-75 active:scale-95;
+  @apply flex flex-row gap-x-2 bg-blue-900 items-center py-2 px-8 text-lg outline outline-2 outline-neutral-400 shadow-xl transition-all 
+  group-hover:outline-yellow-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:z-20 active:brightness-75 active:scale-95;
+}
+
+.quiz-select-bg {
+  @apply clip-path-quiz bg-blue-500 transition-all absolute w-full h-full top-0 scale-105 -z-20
+  group-hover:bg-yellow-500 group-hover:scale-110 group-hover:-z-10 group-active:scale-105;
+}
+
+.quiz-question-bg {
+  @apply clip-path-quiz bg-blue-500 transition-all absolute w-full h-full top-0 -z-10;
+  scale: 104%;
 }
 
 .chosen-answer {
-  @apply outline-yellow-500 outline-4;
+  @apply bg-yellow-300 brightness-90 text-neutral-500;
 }
 
 .clip-path-quiz {
-  clip-path: polygon(7% 0, 93% 0, 100% 50%, 93% 100%, 8% 100%, 0% 50%);
+  clip-path: polygon(7% 0, 94% 0, 100% 50%, 93% 100%, 7% 100%, 0% 50%);
 }
+
+/* #3 Function calculator */
