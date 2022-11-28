@@ -1,5 +1,12 @@
 /*
     * JavaScript Closures and Modules
+    Additional information:
+    -Learning JavaScript Design Patterns (by Addy Osmani, Free Book)
+    https://addyosmani.com/resources/essentialjsdesignpatterns/book/
+    -JavaScript variable scope and closure
+    https://javascript.info/closure
+    -JavaScript Modules
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 */
 
 // What is a closure?

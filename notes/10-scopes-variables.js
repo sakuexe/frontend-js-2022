@@ -1,7 +1,10 @@
 /*
     * Javascript Scopes, var, let, const
     Read more about it:
-
+    -Defining JavaScript variables
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types
+    -The visual Guide to JavaScript Variable Definitions & Scope
+    https://medium.com/@js_tut/the-visual-guide-to-javascript-variable-definitions-scope-abfb86edad
 */
 
 // * Scopes
