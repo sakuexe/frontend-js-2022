@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Canvas testi</title>
+		<script>
+			let canvas, ctx
+            let counter = 0
+			function draw() {
+                window.requestAnimationFrame(draw)
+				canvas = document.querySelector('#main-canvas')
+				ctx = canvas.getContext('2d')
+                ctx.clearRect(0,0, canvas.width, canvas.height)
+                ctx.strokeStyle = "000000"
+                // performance in mind, it is recommended that you round your float points
+                // to integers
+                ctx.lineWidth = 5
+                ctx.fillStyle = "red"
+                ctx.fillRect(counter,20,400,300)
+				ctx.strokeRect(counter, 20, 400, 300)
+                counter++
+			}
+
+            function line(x1, y1, x2, y2) {
+                ctx.beginPath()
+                ctx.moveTo(x1,y1)
+                ctx.lineTo(x2, y2)
+                ctx.stroke()
+            }
+            function func() {
+                return height/2+0.2*height*Math.sin(x*0.1)
+            }
+		</script>
+	</head>
+	<body onload="draw()" style="background-color: #252424;">
+		<canvas id="main-canvas" width="600" height="786"></canvas>
+	</body>
+</html>

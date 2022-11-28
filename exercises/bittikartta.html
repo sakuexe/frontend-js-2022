@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script>
+			var canvas, ctx, sprite
+			var counter = 0
+			const NUMBER_OF_BITMAPS = 1 // the total number of images to load
+			var loadCounter
+			function begin() {
+				canvas = document.getElementById('main-canvas')
+				ctx = canvas.getContext('2d')
+				loadCounter = 0
+				sprite = new Image()
+				sprite.onload = draw // call draw() after image is fully loaded
+				sprite.src = 'rat.png' // start loading bitmap
+			}
+			// now this won't be executed until sprite is loaded
+			function draw() {
+				if (++loadCounter < NUMBER_OF_BITMAPS) return
+				window.requestAnimationFrame(draw)
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
+				// image, srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstW, dstH
+				ctx.save()
+				ctx.translate(300, 300)
+				ctx.rotate(counter++ * 0.04)
+				let scaleFactor = 0.5 * Math.sin(counter * 0.02) + 1
+				ctx.scale(scaleFactor, scaleFactor)
+				ctx.drawImage(sprite, -sprite.width / 2, -sprite.height / 2)
+				ctx.restore()
+			}
+		</script>
+		<title>Canvas testi</title>
+	</head>
+	<body onload="begin()" style="background-color: #252424">
+		<canvas id="main-canvas" width="700" height="786"></canvas>
+	</body>
+</html>
