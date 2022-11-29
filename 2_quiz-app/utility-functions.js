@@ -9,6 +9,16 @@ async function getJSON() {
     return jsonData
 }
 
+// closure for counting the user's score
+// check closures from ../notes/11-closures-and-modules.js
+let scoreCounter = {
+	userScore: 0,
+	addScore: function() {
+		console.log(this.userScore)
+		this.userScore += 1
+	}
+}
+
 // checks for the answer
 function checkAnswer(currentQuestion) {
 	// search for the element with the class .chosen-answer
@@ -39,10 +49,10 @@ function clearSelection() {
 }
 
 // shows results
-async function showResult(score, questionCount) {
+async function showResult(questionCount) {
 	let resultElement = document.querySelector('#results')
 	// set the user's score to the correct element
-	resultElement.querySelector('#userScore').innerText = `${score}/${questionCount}`
+	resultElement.querySelector('#userScore').innerText = `${scoreCounter.userScore}/${questionCount}`
 	// show result element
 	resultElement.classList.remove('hidden')
 }

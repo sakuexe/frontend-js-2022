@@ -2,7 +2,6 @@ const questionElement = document.querySelector('#quiz-question')
 const answers = document.querySelectorAll('.quiz-answer')
 const lockAnswer = document.querySelector('#lock-answer')
 let promptCounter = 0 // current question, counted in indexes
-let scoreCounter = 0
 let quizQuestions
 
 async function initializeGame() {
@@ -26,7 +25,7 @@ lockAnswer.addEventListener('click', _ => {
 	if (!quizQuestions) return
 	if (!document.querySelector('.chosen-answer')) return
 
-	if (checkAnswer(quizQuestions[promptCounter])) scoreCounter += 1
+	if (checkAnswer(quizQuestions[promptCounter])) scoreCounter.addScore()
 	promptCounter += 1
 
 	clearSelection()
@@ -35,7 +34,7 @@ lockAnswer.addEventListener('click', _ => {
 		setUpRound()
 		return
 	}
-	showResult(scoreCounter, quizQuestions.length)
+	showResult(quizQuestions.length)
 })
 
 // Sets up the round
