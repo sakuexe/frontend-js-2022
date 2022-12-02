@@ -1,6 +1,12 @@
 /*
     * Javascript Canvas Basics
     additional information:
+    -Canvas tutorial:
+    https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+    -Canvas API:
+    https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+    -HTML5 Canvas Cheat Sheet
+    https://simon.html5.org/dump/html5-canvas-cheat-sheet.html
 */
 
 // * <canvas> tag
