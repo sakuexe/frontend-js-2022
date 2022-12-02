@@ -63,7 +63,6 @@ function showResults(event) {
     for (let hobby of document.querySelectorAll('[name="hobbies"]:checked')) {
         hobbies.push(hobby.value)
     }
-    console.log(hobbies)
     values.push(
         // if user has chosen no hobbies, push string
         hobbies.length == 0 ? 'No hobbies given' : hobbies.join(', ')

@@ -24,7 +24,7 @@ function calculate(event) {
   // format of input string is "year-month-day"
   const birth = document.querySelector("#birth").value;
   let [year, month, day] = birth.split("-");
-  const birthDate = new Date(year - 1, month - 1, day - 0);
+  const birthDate = new Date(year - 0, month - 0, day - 0);
   const currentDate = new Date();
   const diff = currentDate - birthDate;
   const days = diff / 86400 / 1000;
