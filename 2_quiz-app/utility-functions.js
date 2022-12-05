@@ -5,7 +5,7 @@ async function getJSON() {
     // shuffle JSON array before returning it
     // this randomizes the order of the questions
     shuffleArray(jsonData)
-    console.table(jsonData)
+    // console.table(jsonData)
     return jsonData
 }
 
@@ -14,7 +14,7 @@ async function getJSON() {
 let scoreCounter = {
 	userScore: 0,
 	addScore: function() {
-		console.log(this.userScore)
+		// console.log(this.userScore)
 		this.userScore += 1
 	}
 }
@@ -56,3 +56,18 @@ async function showResult(questionCount) {
 	// show result element
 	resultElement.classList.remove('hidden')
 }
+
+/*
+	* Another way of writing the quiz questions in JSON
+	[
+		{
+			"text": "What is the capital of Finland",
+			"choices": [
+				{"text": "Norway", "points", 0},
+				{"text": "Canada", "points", 0},
+				{"text": "Helsinki", "points", 1},
+				{"text": "Sweden", "points", 0}
+			]
+		}
+	]
+*/
