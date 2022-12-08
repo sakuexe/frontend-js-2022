@@ -2,10 +2,12 @@
   "devDependencies": {
     "tailwindcss": "^3.2.1"
   },
-    "scripts": {
+  "scripts": {
     "build": "tailwindcss -i ./input.css -o ./output.css",
     "watch": "tailwindcss -i ./input.css -o ./output.css --watch",
     "minify": "tailwindcss -o ./output.css --minify"
+  },
+  "dependencies": {
+    "chart.js": "^4.0.1"
   }
 }
-

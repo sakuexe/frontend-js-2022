@@ -6,9 +6,42 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>#3 - Function Calculator</title>
 		<!-- Tailwind CSS -->
-		<link rel="stylesheet" href="../output.css" />
+		<!-- <link rel="stylesheet" href="../output.css" /> -->
+		<!-- chart.js -->
+		<script src="../node_modules/chart.js/dist/chart.umd.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 		<!-- using the "defer" attribute to read script only once html is loaded completely -->
-		<script src="calculator.js" defer></script>
+		<script src="graph.js" type="module" defer></script>
 	</head>
-	<body></body>
+	<body>
+		<header>
+			<h1 class="fw-bold text-xl">Function Calculator</h1>
+		</header>
+		<main>
+			<form>
+				<label for="return_value">function f(x) return value</label>
+				<input type="text" name="return_value" id="return_value">
+				<br>
+				<label for="x_start">Start of x's range</label>
+				<input type="text" name="x_start" id="x_start" value="0">
+				<br>
+				<label for="x_end">End of x's range</label>
+				<input type="text" name="x_end" id="x_end" value="20">
+				<br>
+				<label for="x_steps">x steps</label>
+				<input type="text" name="x_steps" id="x_steps" value="0.5">
+				<br>
+				<label for="y_scale_factor">y scale factor</label>
+				<input type="text" name="y_scale_factor" id="y_scale_factor">
+				<br>
+				<button>Calculate</button>
+			</form>
+		</main>
+		<section>
+			<output></output>
+		</section>
+		<section>
+			<canvas id="calculator_chart"></canvas>
+		</section>
+	</body>
 </html>
