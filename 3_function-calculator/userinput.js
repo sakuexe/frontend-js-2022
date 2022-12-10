@@ -18,6 +18,7 @@ function getXRange() {
 		// for example 1.23456789 -> 1.23
 		// while 1 -> 1 and 1.2 -> 1.2
 		let valueFormatted = +parseFloat(value).toFixed(2)
+
 		xRange.push(valueFormatted)
 	}
 	return xRange
@@ -34,15 +35,17 @@ VALUES_FORM.addEventListener('submit', event => {
 	yScaleFactor = document.querySelector('#y_scale_factor').value
 
 	// check if any of the given values are pi
-    // with regex that chcecks for pi or π
-    const CHECK_FOR_PI = /pi|π/gi
+	// with regex that chcecks for pi or π
+	const CHECK_FOR_PI = /pi|π/gi
 	xStart = xStart.replace(CHECK_FOR_PI, Math.PI)
 	xEnd = xEnd.replace(CHECK_FOR_PI, Math.PI)
 	xSteps = xSteps.replace(CHECK_FOR_PI, Math.PI)
 
-    xStart = Function('return ' + xStart)()
-    xEnd = Function('return ' + xEnd)()
-    xSteps = Function('return ' + xSteps)()
+	// I used Function to convert the string to a javascript function
+	// instead of using the eval() function
+	xStart = Function('return ' + xStart)()
+	xEnd = Function('return ' + xEnd)()
+	xSteps = Function('return ' + xSteps)()
 })
 
 console.table(getXRange())

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // content: ["*/*.{html, js}"],
-  content: ["./3_function-calc/*.{html, js}"],
+  content: ["./3_function-calculator/*.{html, js}"],
   // content: ["./exercises/*.{html, js}"],
   theme: {
     fontFamily: {

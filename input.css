@@ -1,9 +1,9 @@
 /* custom fonts */
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Mono&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css');
 
 /* bootstrap icons */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css');
 
 @tailwind base;
 @tailwind components;
@@ -12,87 +12,92 @@
 h1,
 h2,
 h3 {
-  font-family: "Lato", sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 
 .button-primary {
-  @apply bg-red-700 py-2 px-4 outline outline-2 outline-transparent outline-offset-0 transition-all duration-200 hover:outline-red-700 hover:outline-offset-4 hover:drop-shadow-md hover:bg-transparent active:outline-offset-0 active:brightness-50 active:scale-90;
+	@apply bg-red-700 py-2 px-4 outline outline-2 outline-transparent outline-offset-0 transition-all duration-200 hover:outline-red-700 hover:outline-offset-4 hover:drop-shadow-md hover:bg-transparent active:outline-offset-0 active:brightness-50 active:scale-90;
 }
 
 .nav-bg {
-  /* clip-path: polygon(0 0, 17% 0, 100% 100%, 0% 100%); */
-  background-image: url(img/personastar-bg.svg);
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: cover;
+	/* clip-path: polygon(0 0, 17% 0, 100% 100%, 0% 100%); */
+	background-image: url(img/personastar-bg.svg);
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .clip-path-1 {
-  clip-path: polygon(0 0, 98% 11%, 100% 89%, 5% 91%);
+	clip-path: polygon(0 0, 98% 11%, 100% 89%, 5% 91%);
 }
 
 .clip-path-2 {
-  clip-path: polygon(0 10%, 99% 0%, 100% 85%, 6% 100%);
+	clip-path: polygon(0 10%, 99% 0%, 100% 85%, 6% 100%);
 }
 
 .clip-path-3 {
-  clip-path: polygon(0 0, 100% 9%, 98% 87%, 2% 100%);
+	clip-path: polygon(0 0, 100% 9%, 98% 87%, 2% 100%);
 }
 
 .clip-path-4 {
-  clip-path: polygon(0 0, 100% 25%, 100% 87%, 5% 100%);
+	clip-path: polygon(0 0, 100% 25%, 100% 87%, 5% 100%);
 }
 
 .clip-path-5 {
-  clip-path: polygon(2% 20%, 98% 4%, 100% 96%, 0 85%);
+	clip-path: polygon(2% 20%, 98% 4%, 100% 96%, 0 85%);
 }
 
 .clip-path-secondary {
-  clip-path: polygon(0 43%, 100% 8%, 100% 74%, 0 93%);
+	clip-path: polygon(0 43%, 100% 8%, 100% 74%, 0 93%);
 }
 
 .reactive-nav {
-  @apply hover:text-red-700 hover:scale-125 hover:z-10 group-focus:text-red-700 group-focus:scale-125;
+	@apply hover:text-red-700 hover:scale-125 hover:z-10 group-focus:text-red-700 group-focus:scale-125;
 }
 
 .reactive-nav-secondary {
-  @apply group-hover:scale-100 group-focus:scale-100;
+	@apply group-hover:scale-100 group-focus:scale-100;
 }
 
 /* #2 Quiz App */
 
 .quiz-background {
-  background-image: url(./img/millionaire-bg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url(./img/millionaire-bg.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .exercise-button {
-  @apply block my-4 px-4 py-2 rounded-xl transition-all mx-auto outline hover:bg-transparent hover:outline-2 active:brightness-50 active:scale-75;
+	@apply block my-4 px-4 py-2 rounded-xl transition-all mx-auto outline hover:bg-transparent hover:outline-2 active:brightness-50 active:scale-75;
 }
 
 .quiz-select {
-  @apply flex flex-row gap-x-2 bg-blue-900 items-center py-2 px-8 text-lg outline outline-2 outline-neutral-400 shadow-xl transition-all 
+	@apply flex flex-row gap-x-2 bg-blue-900 items-center py-2 px-8 text-lg outline outline-2 outline-neutral-400 shadow-xl transition-all 
   group-hover:outline-yellow-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:z-20 active:brightness-75 active:scale-95;
 }
 
 .quiz-select-bg {
-  @apply clip-path-quiz bg-blue-500 transition-all absolute w-full h-full top-0 scale-105 -z-20
+	@apply clip-path-quiz bg-blue-500 transition-all absolute w-full h-full top-0 scale-105 -z-20
   group-hover:bg-yellow-500 group-hover:scale-110 group-hover:-z-10 group-active:scale-105;
 }
 
 .quiz-question-bg {
-  @apply clip-path-quiz bg-blue-500 transition-all absolute w-full h-full top-0 -z-10;
-  scale: 104%;
+	@apply clip-path-quiz bg-blue-500 transition-all absolute w-full h-full top-0 -z-10;
+	scale: 104%;
 }
 
 .chosen-answer {
-  @apply bg-yellow-300 brightness-90 text-neutral-500;
+	@apply bg-yellow-300 brightness-90 text-neutral-500;
 }
 
 .clip-path-quiz {
-  clip-path: polygon(7% 0, 94% 0, 100% 50%, 93% 100%, 7% 100%, 0% 50%);
+	clip-path: polygon(7% 0, 94% 0, 100% 50%, 93% 100%, 7% 100%, 0% 50%);
 }
 
 /* #3 Function calculator */
+
+.math-input {
+	@apply outline outline-2 outline-violet-400 px-2 py-1 outline-offset-0 rounded-sm transition-all duration-200 bg-transparent 
+  hover:outline-offset-2 hover:drop-shadow-md focus-within:outline-offset-0 focus-within:bg-neutral-700 invalid:outline-red-500;
+}

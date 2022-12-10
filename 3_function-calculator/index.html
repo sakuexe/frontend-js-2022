@@ -14,52 +14,88 @@
 		<!-- using the "defer" attribute to read script only once html is loaded completely -->
 		<script src="graph.js" type="module" defer></script>
 	</head>
-	<body>
-		<header class="max-w-4xl mx-auto pt-20">
+	<body class="bg-neutral-900 text-neutral-100">
+		<header class="max-w-4xl mx-auto py-5 px-4 text-center my-10">
+			<p class="italic opacity-75">Assignment #3 - SakuK</p>
 			<h1 class="fw-bold text-3xl font-black">Function Calculator</h1>
 		</header>
-		<main class="max-w-4xl mx-auto">
-			<form>
-				<label for="return_value">function f(x) return value</label>
-				<input type="text" name="return_value" id="return_value" value="sin(x)">
-				<br>
-				<label for="x_start">Start of x's range</label>
-				<input type="text" name="x_start" id="x_start" value="0" 
-				pattern="([-]?(\d|pi|π)+[-+*/]?)+" title="Digits and pi only">
-				<br>
-				<label for="x_end">End of x's range</label>
-				<input type="text" name="x_end" id="x_end" value="20"
-				pattern="([-]?(\d|pi|π)+[-+*/]?)+" title="Digits and pi only">
-				<br>
-				<label for="x_steps">x steps</label>
-				<input type="text" name="x_steps" id="x_steps" value="0.5"
-				pattern="([-]?(\d|pi|π)+[-+*/]?)+" title="Digits and pi only">
-				<br>
-				<label for="y_scale_factor">y scale factor</label>
-				<input type="text" name="y_scale_factor" id="y_scale_factor" value="1"
-				pattern="([-]?(\d|pi|π)+[-+*/]?)+" title="Digits and pi only">
-				<br>
-				<button>Calculate</button>
-			</form>
-		</main>
-		<section class="max-w-4xl mx-auto">
-			<canvas id="calculator_chart"></canvas>
-		</section>
-		<section class="max-w-xl mx-auto">
-			<output>
-				<ul class="grid grid-cols-2 list-none">
-					<li class="font-bold text-lg">Position (x)</li>
-					<li class="font-bold text-lg">Value (y)</li>
-				</ul>
-			</output>
-		</section>
+		<div class="grid max-w-6xl gap-x-2 mx-auto px-4 lg:grid-cols-4 lg:grid-rows-1">
+			<main class="lg:row-span-2 lg:max-h-20 lg:my-8">
+				<form class="grid mx-auto grid-cols-1 gap-y-1 max-w-2xl h-full py-2">
+					<label for="return_value" class="font-semibold">y = f(x):</label>
+					<input
+						type="text"
+						name="return_value"
+						id="return_value"
+						value="sin(x)"
+						class="math-input"
+						autofocus
+						required />
+					<label for="x_start">Start of x's range</label>
+					<input
+						type="text"
+						name="x_start"
+						id="x_start"
+						class="math-input"
+						value="0"
+						pattern="([-]?(\d|pi|π)+[-+*/]?)+"
+						title="Digits and pi only"
+						required />
+					<label for="x_end">End of x's range</label>
+					<input
+						type="text"
+						name="x_end"
+						id="x_end"
+						value="20"
+						class="math-input"
+						pattern="([-]?(\d|pi|π)+[-+*/]?)+"
+						title="Digits and pi only"
+						required />
+					<label for="x_steps">x steps</label>
+					<input
+						type="text"
+						name="x_steps"
+						id="x_steps"
+						value="1/2"
+						class="math-input"
+						pattern="([-]?(\d|pi|π)+[-+*/]?)+"
+						title="Digits and pi only"
+						required />
+					<label for="y_scale_factor">y scale factor</label>
+					<input
+						type="text"
+						name="y_scale_factor"
+						id="y_scale_factor"
+						value="1"
+						class="math-input"
+						pattern="([-]?(\d|pi|π)+[-+*/]?)+"
+						title="Digits and pi only" />
+					<button
+						class="bg-violet-500 my-4 rounded-sm text-white font-bold mx-auto py-1 px-4 outline-violet-500 transition-all hover:outline hover:outline-2 hover:bg-transparent hover:text-violet-500 hover:shadow-md">
+						Calculate
+					</button>
+				</form>
+			</main>
+			<section class="lg:col-span-3">
+				<canvas id="calculator_chart"></canvas>
+			</section>
+			<section class="px-4 lg:col-span-2">
+				<output>
+					<ul class="grid grid-cols-2 list-none gap-x-2 lg:grid-flow-row lg:grid-rows-4 lg:grid-cols-4 opacity-0">
+						<li class="font-bold text-lg hidden lg:block">Position (x)</li>
+						<li class="font-bold text-lg hidden lg:block">Value (y)</li>
+						<li class="font-bold text-lg hidden lg:block">Position (x)</li>
+						<li class="font-bold text-lg hidden lg:block">Value (y)</li>
+					</ul>
+				</output>
+			</section>
+		</div>
 
 		<!-- Navigation beyond this point -->
 		<button
 			id="navButton"
 			tabindex="0"
-			class="fixed bottom-2 right-2 h-16 cursor-pointer drop-shadow-sm z-50 shadow-sm transition-all duration-200 brightness-90 
-			hover:brightness-75 active:brightness-50 active:scale-75 sm:bottom-auto sm:right-auto sm:top-10 sm:left-10 sm:h-20">
+			class="fixed bottom-2 right-2 h-16 cursor-pointer drop-shadow-sm z-50 shadow-sm transition-all duration-200 brightness-90 hover:brightness-75 active:brightness-50 active:scale-75 sm:bottom-auto sm:right-auto sm:top-10 sm:left-10 sm:h-20">
 			<img
 				src="../img/menuicon.svg"
 				alt="navigation menu button icon"
@@ -100,8 +136,7 @@
 								href="../1_forms-and-inputs/index.html"
 								data-info="HTML5 Forms and Form input handling in JS"
 								class="group">
-								<div
-									class="relative mb-2 transition-all duration-50 shadow-md reactive-nav hover:-rotate-6">
+								<div class="relative mb-2 transition-all duration-50 shadow-md reactive-nav hover:-rotate-6">
 									<p>
 										For<span class="font-monospace relative top-1">m</span>s &amp; In<span
 											class="bg-white text-black px-1 group-hover:bg-red-700 group-focus:bg-red-700"
@@ -110,15 +145,13 @@
 									</p>
 									<div
 										class="clip-path-secondary -skew-x-12 -mt-6 h-32 translate-x-2 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
-									<div
-										class="clip-path-2 scale-y-125 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
+									<div class="clip-path-2 scale-y-125 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
 								</div>
 							</a>
 
 							<!-- Quiz app -->
 							<a href="#" data-info="Multiple choice quiz app with JSON and JS" class="-mt-2 group">
-								<div
-									class="relative transition-all duration-50 shadow-md sm:translate-x-3 reactive-nav hover:rotate-6">
+								<div class="relative transition-all duration-50 shadow-md sm:translate-x-3 reactive-nav hover:rotate-6">
 									<p>Quiz App</p>
 									<div
 										class="clip-path-secondary -mt-3 h-16 w-[98%] absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
@@ -146,20 +179,18 @@
 
 							<!-- Exercises -->
 							<a href="../exercises/index.html" data-info="Extra exercises from the course" class="group">
-								<div
-									class="relative transition-all duration-50 shadow-md md:translate-x-2 reactive-nav hover:rotate-6">
+								<div class="relative transition-all duration-50 shadow-md md:translate-x-2 reactive-nav hover:rotate-6">
 									<p>
-										<span
-											class="bg-white text-black px-1 group-hover:bg-red-700 group-focus:bg-red-700"
-											>E</span
-										>xe<span class="font-monospace relative top-1">r</span>cises
+										<span class="bg-white text-black px-1 group-hover:bg-red-700 group-focus:bg-red-700">E</span>xe<span
+											class="font-monospace relative top-1"
+											>r</span
+										>cises
 									</p>
 									<!-- <div class="clip-path-secondary -mt-2 h-16 w-full absolute top-0 right-0 bg-red-700 -rotate-3 scale-0 -z-10 transition-all group-hover:scale-100"></div>
                             <div class="clip-path-4 -mt-7 h-24 w-full absolute top-0 right-0 bg-black -z-10"></div> -->
 									<div
 										class="clip-path-secondary skew-x-12 -mt-2 h-16 w-full absolute top-0 right-0 bg-red-700 -rotate-3 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
-									<div
-										class="clip-path-4 scale-y-150 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
+									<div class="clip-path-4 scale-y-150 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
 								</div>
 							</a>
 
@@ -180,8 +211,7 @@
                             <div class="clip-path-5 -mt-7 h-24 w-full absolute top-0 right-0 bg-black -z-10"></div> -->
 									<div
 										class="clip-path-secondary -mt-3 h-16 w-full absolute top-0 right-0 bg-red-700 scale-0 -z-10 transition-all reactive-nav-secondary"></div>
-									<div
-										class="clip-path-5 scale-y-150 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
+									<div class="clip-path-5 scale-y-150 h-full w-full absolute top-0 right-0 bg-black -z-10"></div>
 								</div>
 							</a>
 							<p
