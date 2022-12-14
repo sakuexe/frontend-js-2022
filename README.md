@@ -110,6 +110,6 @@ I also took a lot of notes when watching the *(about 18.6h)* of videos and I am
 sure that they will be helpful to me in the future, when I need a quick reminder!
 ## 
 
-![HAMK logo](./img/hamk-logo.png)
-![JS, HTML5 and CSS -logos](./img/js-html-css-logos.png)
-![TailwindCSS and ChartJS -logos](./img/tailwind-chart-logos.png)
+![HAMK logo](./img/readme/hamk-logo.png)
+![JS, HTML5 and CSS -logos](./img/readme/js-html-css-logos.png)
+![TailwindCSS and ChartJS -logos](./img/readme/tailwind-chart-logos.png)
