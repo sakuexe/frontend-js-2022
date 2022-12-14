@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // content: ["*/*.{html, js}"],
-  content: ["./3_function-calculator/*.{html, js}"],
-  // content: ["./exercises/*.{html, js}"],
+  content: ["*/*.{html, js}"],
   theme: {
     fontFamily: {
       serif: ['"PT Serif"'],
