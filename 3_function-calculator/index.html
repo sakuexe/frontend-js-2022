@@ -5,13 +5,25 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>#3 - Function Calculator</title>
+		<!-- Favicon, made to work so when you change your color-scheme, it will change color -->
+		<link
+			rel="icon"
+			href="../img/favicons/sklogo-black-ol.svg"
+			type="image/svg"
+			media="(prefers-color-scheme: no-preference)" />
+		<link rel="icon" href="../img/favicons/sklogo-white-ol.svg" type="image/svg" media="(prefers-color-scheme: dark)" />
+		<link
+			rel="icon"
+			href="../img/favicons/sklogo-black-ol.svg"
+			type="image/svg"
+			media="(prefers-color-scheme: light)" />
 		<!-- Tailwind CSS -->
 		<link rel="stylesheet" href="../output.css" />
 		<!-- Navigation Script -->
 		<script src="../navscript.js" defer></script>
 		<!-- chart.js -->
 		<script src="../node_modules/chart.js/dist/chart.umd.js"></script>
-		<!-- using the "defer" attribute to read script only once html is loaded completely -->
+		<!-- using the "defer" attribute to execute script only once html is loaded completely -->
 		<script src="graph.js" type="module" defer></script>
 	</head>
 	<body class="bg-neutral-900 text-neutral-100">
@@ -79,19 +91,15 @@
 			<section class="lg:col-span-3">
 				<canvas id="calculator_chart"></canvas>
 			</section>
-			<section class="px-4 lg:col-span-2">
+			<section class="px-4 lg:col-span-3">
 				<output>
-					<ul class="grid grid-cols-2 list-none gap-x-2 lg:grid-flow-row lg:grid-rows-4 lg:grid-cols-4 opacity-0">
-						<li class="font-bold text-lg hidden lg:block">Position (x)</li>
-						<li class="font-bold text-lg hidden lg:block">Value (y)</li>
-						<li class="font-bold text-lg hidden lg:block">Position (x)</li>
-						<li class="font-bold text-lg hidden lg:block">Value (y)</li>
-					</ul>
+					<ul
+						class="grid grid-cols-1 list-none gap-x-2 px-4 text-center xs:text-start xs:grid-flow-row xs:grid-cols-2 sm:grid-cols-3 lg:grid-rows-2 lg:grid-cols-4 opacity-0"></ul>
 				</output>
 			</section>
 		</div>
 
-		<!-- Navigation beyond this point -->
+		<!-- ! Navigation beyond this point -->
 		<button
 			id="navButton"
 			tabindex="0"
@@ -150,7 +158,10 @@
 							</a>
 
 							<!-- Quiz app -->
-							<a href="#" data-info="Multiple choice quiz app with JSON and JS" class="-mt-2 group">
+							<a
+								href="../2_quiz-app/index.html"
+								data-info="Multiple choice quiz app with JSON and JS"
+								class="-mt-2 group">
 								<div class="relative transition-all duration-50 shadow-md sm:translate-x-3 reactive-nav hover:rotate-6">
 									<p>Quiz App</p>
 									<div
@@ -161,10 +172,7 @@
 							</a>
 
 							<!-- Function calculator -->
-							<a
-								href="../3_function-calculator/index.html"
-								data-info="Function calculator made with Graph.js"
-								class="group">
+							<a href="#" data-info="Function calculator made with Graph.js" class="group">
 								<div
 									class="relative transition-all duration-50 shadow-md md:-translate-x-2 reactive-nav hover:-rotate-6">
 									<p>Function Calculator</p>

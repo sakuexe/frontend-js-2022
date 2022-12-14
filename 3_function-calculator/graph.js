@@ -61,18 +61,20 @@ VALUES_FORM.addEventListener('submit', event => {
 
 	// show calulation results at the bottom of the page
 	for (let [index, value] of valueData.entries()) {
-		console.log(xRange[index], value)
-
+		// create a list item for each calculation
 		let positionXValue = document.createElement('li')
 		positionXValue.classList.add('opacity-75')
-		positionXValue.innerText = `f(${xRange[index]}) =`
+		positionXValue.innerText = `f(${xRange[index]}) = `
 
-		let valueY = document.createElement('li')
-		valueY.classList.add('opacity-75')
+		// create a span element to hold the value
+		let valueY = document.createElement('span')
+		valueY.classList.add('fw-bold')
 		valueY.innerText = +parseFloat(value).toFixed(5)
 
+		// append the span to the list item and the list item to the results list
+		positionXValue.appendChild(valueY)
 		RESULTS_LIST.appendChild(positionXValue)
-		RESULTS_LIST.appendChild(valueY)
+		// remove the opacity class to show the result list
 		RESULTS_LIST.classList.remove('opacity-0')
 	}
 })
