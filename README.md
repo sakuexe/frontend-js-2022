@@ -18,6 +18,7 @@ This was repository includes exercises, assignments and notes from HAMK Riihimä
 * Frameworks and libraries used: **[Tailwind CSS](https://tailwindcss.com/) & [Chart.js](https://www.chartjs.org/)**
 ## **Assignments**
 
+
 #### **1) HTML5 Forms and Handling Form Input in JavaScript**
 
 This assignment was all about HTML5 forms and handling the data from them.
@@ -34,6 +35,7 @@ The following elements were required:
 * **Home Country**, <select><option> selector with Finland as default choice, also include Russia and other Scandinavian countries and Baltic countries as possible choices.
 * **Profession**, datalist, with at least 4 predetermined choice e.g. teacher, nurse, plumber and bureaucrat
 * **Message**, a text area, which is required and is by default 6 rows high and 60 columns wide. With placeholder and max length for input set to 1000 characters.
+
 
 #### **2) Multiple Choice Quiz App with JSON and JavaScript**
 
@@ -60,6 +62,7 @@ before they are assigned to the DOM elements.
     }
 ```
 *Example snippet of the fetch function*
+
 
 #### **3) Function Calculator and Plotter**
 
